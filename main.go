@@ -42,7 +42,7 @@ func (r *Review) Fetch() {
 	if err := c.SetStorage(storage); err != nil {
 		panic(err)
 	}
-	c := colly.NewCollector(colly.AllowedDomains("pitchfork.com", "www.pitchfork.comj"))
+	c := colly.NewCollector(colly.AllowedDomains("pitchfork.com/reviews/albums/", "www.pitchfork.com/reviews/albums/"))
 
 	c.OnHTML("h1", func(h *colly.HTMLElement) {
 		r.Album = trim(h.Text)
